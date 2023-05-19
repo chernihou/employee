@@ -1,0 +1,74 @@
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Form Layouts</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Layouts</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+
+              <!-- Vertical Form -->
+              <form #addClientForm="ngForm" (ngSubmit)="addOrEdit(client)">
+                <div class="form-row">
+                    <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Nom Societe</label>
+                        <input type="text" class="form-control" placeholder="nom Societe *" [(ngModel)]="client.nomSociete" [ngModelOptions]="{standalone:true}">
+                      </div>
+                      <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Nom Manage</label>
+                        <input type="text" class="form-control" placeholder="nom Manage *" [(ngModel)]="client.nomManager" [ngModelOptions]="{standalone:true}">
+                      </div>
+                      <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Prenom Manager</label>
+                        <input type="text" class="form-control" placeholder="prenom Manager *" [(ngModel)]="client.prenomManager" [ngModelOptions]="{standalone:true}">
+                      </div>
+                      <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" placeholder="adresse *" [(ngModel)]="client.adresse" [ngModelOptions]="{standalone:true}">
+                      </div>
+                      <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="email*" [(ngModel)]="client.email" [ngModelOptions]="{standalone:true}">
+                      </div>
+                      <div class="col-12">
+                        <label for="inputNanme4" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" placeholder="phone *" [(ngModel)]="client.phone" [ngModelOptions]="{standalone:true}">
+                      </div>
+                
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">{{title}}</button>
+                  
+                  </div>
+                
+
+            </form>
+
+            </div>
+          </div>
+
+        
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+
+

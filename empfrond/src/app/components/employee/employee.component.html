@@ -1,0 +1,83 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>General Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">General</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+      
+
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Table Employee</h5>
+      
+              <!-- Primary Color Bordered Table -->
+              <table class="table table-bordered border-primary">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom Employee</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col" >Email</th>
+                    <th scope="col">Num Tel</th>
+                    <th scope="col">Fonction</th>
+                    <th scope="col">Salaire</th>
+                    <th scope="col">Departement</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let e of employee | slice : (page-1) * pageSize : (page-1) * pageSize+pageSize;index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{e?.firstName}}</td>
+                    <td>{{e?.lastName}}</td>
+                    <td>{{e?.email}}</td>
+                    <td>{{e?.phone}}</td>
+                    <td>{{e?.fonction}}</td>
+                    <td>{{e?.salaire}}</td>
+                    <td>{{e?.departement?.departName}}</td>
+                   
+                    <td><a href="#"><img class="card-img-top img-responsive"
+                      src = "{{this.employeeService.host+'/api/Imgemployees/'+e.id}}" 
+                      style = "height :100px;width:fil-content;"
+                     alt=""></a></td>
+                    <td>{{e?.departement?.departName}}</td>
+                    <td>
+                        <button type="button" class="btn  btn-sm" (click)="displayEmployee(e.id)"><i class="bi bi-display"></i></button>
+                        <button type="button" class="btn  btn-sm"(click)="editEmployee(e.id)"><i class="bi bi-pencil"></i></button>
+                        <button type="button" class="btn   btn-sm" (click)="deleteEmployee(e.id)"><i class="bi bi-trash"></i></button>   
+                      </td>
+                    </tr>
+                </tbody>
+              </table>
+              <ngb-pagination [collectionSize]="employee.length" [(page)]="page"
+              [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  
+
+
+
+
